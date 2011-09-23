@@ -10,4 +10,6 @@
 
 @interface QuestionViewController : UIViewController
 
+
+- (void)buttonTouchUpHandler:(id)sender;
 @end

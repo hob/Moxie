@@ -39,6 +39,13 @@
     UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 125, 35)];
     test.text = @"Frank";
     [self.view addSubview:test];
+    
+    UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [firstButton setTitle:@"Yes" forState:UIControlStateNormal];
+    CGRect buttonRect = CGRectMake(50, 50, 200, 40);
+    firstButton.frame = buttonRect;
+    [firstButton addTarget:self action:@selector(buttonTouchUpHandler:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:firstButton];
 }
 
 
@@ -63,4 +70,11 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+#pragma mark - Event handlers
+- (void)buttonTouchUpHandler:(id)sender
+{
+    QuestionViewController *newQuestionVC = [[[QuestionViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    [self.navigationController pushViewController:newQuestionVC animated:YES];
+}
 @end
