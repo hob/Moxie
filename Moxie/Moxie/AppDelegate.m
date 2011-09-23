@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "QuestionViewController.h"
 
 @implementation AppDelegate
 
@@ -23,6 +24,10 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    QuestionViewController *firstQuestion = [[[QuestionViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:firstQuestion];
+    [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

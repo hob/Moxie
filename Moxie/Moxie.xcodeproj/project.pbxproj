@@ -13,6 +13,7 @@
 		6F01AC89142D2AC100985A14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F01AC87142D2AC100985A14 /* InfoPlist.strings */; };
 		6F01AC8B142D2AC100985A14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F01AC8A142D2AC100985A14 /* main.m */; };
 		6F01AC8F142D2AC100985A14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F01AC8E142D2AC100985A14 /* AppDelegate.m */; };
+		6F01AC97142D2B5B00985A14 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F01AC96142D2B5B00985A14 /* QuestionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		6F01AC8C142D2AC100985A14 /* Moxie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Moxie-Prefix.pch"; sourceTree = "<group>"; };
 		6F01AC8D142D2AC100985A14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6F01AC8E142D2AC100985A14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6F01AC95142D2B5B00985A14 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		6F01AC96142D2B5B00985A14 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +78,8 @@
 				6F01AC8D142D2AC100985A14 /* AppDelegate.h */,
 				6F01AC8E142D2AC100985A14 /* AppDelegate.m */,
 				6F01AC85142D2AC100985A14 /* Supporting Files */,
+				6F01AC95142D2B5B00985A14 /* QuestionViewController.h */,
+				6F01AC96142D2B5B00985A14 /* QuestionViewController.m */,
 			);
 			path = Moxie;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			files = (
 				6F01AC8B142D2AC100985A14 /* main.m in Sources */,
 				6F01AC8F142D2AC100985A14 /* AppDelegate.m in Sources */,
+				6F01AC97142D2B5B00985A14 /* QuestionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
