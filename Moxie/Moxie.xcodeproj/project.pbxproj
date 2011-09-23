@@ -1,0 +1,263 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F01AC7F142D2AC100985A14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC7E142D2AC100985A14 /* UIKit.framework */; };
+		6F01AC81142D2AC100985A14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC80142D2AC100985A14 /* Foundation.framework */; };
+		6F01AC83142D2AC100985A14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC82142D2AC100985A14 /* CoreGraphics.framework */; };
+		6F01AC89142D2AC100985A14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F01AC87142D2AC100985A14 /* InfoPlist.strings */; };
+		6F01AC8B142D2AC100985A14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F01AC8A142D2AC100985A14 /* main.m */; };
+		6F01AC8F142D2AC100985A14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F01AC8E142D2AC100985A14 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6F01AC7A142D2AC100985A14 /* Moxie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moxie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F01AC7E142D2AC100985A14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6F01AC80142D2AC100985A14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6F01AC82142D2AC100985A14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6F01AC86142D2AC100985A14 /* Moxie-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Moxie-Info.plist"; sourceTree = "<group>"; };
+		6F01AC88142D2AC100985A14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F01AC8A142D2AC100985A14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F01AC8C142D2AC100985A14 /* Moxie-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Moxie-Prefix.pch"; sourceTree = "<group>"; };
+		6F01AC8D142D2AC100985A14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6F01AC8E142D2AC100985A14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F01AC77142D2AC100985A14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F01AC7F142D2AC100985A14 /* UIKit.framework in Frameworks */,
+				6F01AC81142D2AC100985A14 /* Foundation.framework in Frameworks */,
+				6F01AC83142D2AC100985A14 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F01AC6F142D2AC100985A14 = {
+			isa = PBXGroup;
+			children = (
+				6F01AC84142D2AC100985A14 /* Moxie */,
+				6F01AC7D142D2AC100985A14 /* Frameworks */,
+				6F01AC7B142D2AC100985A14 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6F01AC7B142D2AC100985A14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F01AC7A142D2AC100985A14 /* Moxie.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F01AC7D142D2AC100985A14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F01AC7E142D2AC100985A14 /* UIKit.framework */,
+				6F01AC80142D2AC100985A14 /* Foundation.framework */,
+				6F01AC82142D2AC100985A14 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F01AC84142D2AC100985A14 /* Moxie */ = {
+			isa = PBXGroup;
+			children = (
+				6F01AC8D142D2AC100985A14 /* AppDelegate.h */,
+				6F01AC8E142D2AC100985A14 /* AppDelegate.m */,
+				6F01AC85142D2AC100985A14 /* Supporting Files */,
+			);
+			path = Moxie;
+			sourceTree = "<group>";
+		};
+		6F01AC85142D2AC100985A14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6F01AC86142D2AC100985A14 /* Moxie-Info.plist */,
+				6F01AC87142D2AC100985A14 /* InfoPlist.strings */,
+				6F01AC8A142D2AC100985A14 /* main.m */,
+				6F01AC8C142D2AC100985A14 /* Moxie-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F01AC79142D2AC100985A14 /* Moxie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F01AC92142D2AC100985A14 /* Build configuration list for PBXNativeTarget "Moxie" */;
+			buildPhases = (
+				6F01AC76142D2AC100985A14 /* Sources */,
+				6F01AC77142D2AC100985A14 /* Frameworks */,
+				6F01AC78142D2AC100985A14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Moxie;
+			productName = Moxie;
+			productReference = 6F01AC7A142D2AC100985A14 /* Moxie.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F01AC71142D2AC100985A14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 6F01AC74142D2AC100985A14 /* Build configuration list for PBXProject "Moxie" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6F01AC6F142D2AC100985A14;
+			productRefGroup = 6F01AC7B142D2AC100985A14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F01AC79142D2AC100985A14 /* Moxie */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F01AC78142D2AC100985A14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F01AC89142D2AC100985A14 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F01AC76142D2AC100985A14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F01AC8B142D2AC100985A14 /* main.m in Sources */,
+				6F01AC8F142D2AC100985A14 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6F01AC87142D2AC100985A14 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F01AC88142D2AC100985A14 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F01AC90142D2AC100985A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		6F01AC91142D2AC100985A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F01AC93142D2AC100985A14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Moxie/Moxie-Prefix.pch";
+				INFOPLIST_FILE = "Moxie/Moxie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6F01AC94142D2AC100985A14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Moxie/Moxie-Prefix.pch";
+				INFOPLIST_FILE = "Moxie/Moxie-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F01AC74142D2AC100985A14 /* Build configuration list for PBXProject "Moxie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F01AC90142D2AC100985A14 /* Debug */,
+				6F01AC91142D2AC100985A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F01AC92142D2AC100985A14 /* Build configuration list for PBXNativeTarget "Moxie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F01AC93142D2AC100985A14 /* Debug */,
+				6F01AC94142D2AC100985A14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F01AC71142D2AC100985A14 /* Project object */;
+}
