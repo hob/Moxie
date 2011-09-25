@@ -20,7 +20,7 @@
                         [[Reason alloc] initWithImage:@"5402699783_087b67f9d7_b.jpg" andCaption:@"I love you because this picture doesn't send you running"],
                         [[Reason alloc] initWithImage:@"IMG_2951.jpg" andCaption:@"I love you because of the way you look at me"],
                         [[Reason alloc] initWithImage:@"IMG_2915.jpg" andCaption:@"I love you because I know when you opened this gift you thought, 'Why the hell is he wasting money on this crap instead of buying me a ring?'"],
-                        [[Reason alloc] initWithImage:@"IMG_3342.jpg" andCaption:@"Marry Me"],
+                        [[Reason alloc] initWithImage:@"SandWritten.jpg" andCaption:@""],
                         nil];
     }
     return self;
@@ -42,7 +42,6 @@
 - (void)loadView
 {
     [super loadView];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
 
     Reason *currentReason = [self.reasons objectAtIndex:self.reasonIndex];
     CGRect imageRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
@@ -54,12 +53,12 @@
     [self.view addSubview:image];
 
     UILabel *caption = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 70, self.view.bounds.size.width, 70)];
-    [caption setNumberOfLines:10];
+    [caption setNumberOfLines:3];
     [caption setTextColor:[UIColor whiteColor]];
     [caption setBackgroundColor:[UIColor clearColor]];
-    [caption setFont:[UIFont fontWithName:@"Verdana" size:18]];
+    [caption setFont:[UIFont boldSystemFontOfSize:18]];
     [caption setTextAlignment:UITextAlignmentCenter];
-    caption.text = [currentReason caption];
+    [caption setText:[currentReason caption]];
     [self.view addSubview:caption];
     
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];

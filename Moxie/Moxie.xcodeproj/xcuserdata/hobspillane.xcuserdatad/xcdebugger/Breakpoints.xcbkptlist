@@ -9,7 +9,21 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/QuestionViewController.m"
-         timestampString = "338662053.978801"
+         timestampString = "338684581.460505"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "-onSwipeLeft:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Moxie/QuestionViewController.m"
+         timestampString = "338684581.460505"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "100"
@@ -22,13 +36,41 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
-         filePath = "Moxie/QuestionViewController.m"
-         timestampString = "338662053.978801"
+         filePath = "Moxie/RootViewControler.m"
+         timestampString = "338685376.155603"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
-         landmarkName = "-onSwipeLeft:"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
+         landmarkName = "-loadView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Moxie/RootViewControler.m"
+         timestampString = "338685376.155603"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "42"
+         endingLineNumber = "42"
+         landmarkName = "-loadView"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Moxie/RootViewControler.m"
+         timestampString = "338685586.635267"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
