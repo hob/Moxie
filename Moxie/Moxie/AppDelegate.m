@@ -26,6 +26,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     QuestionViewController *firstQuestion = [[[QuestionViewController alloc] initWithNibName:nil bundle:nil] autorelease];
+    [firstQuestion setReasonIndex:0];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:firstQuestion];
     [self.window addSubview:navController.view];
     [self.window makeKeyAndVisible];

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface QuestionViewController : UIViewController
+@property (nonatomic, retain) NSArray *reasons;
+@property (nonatomic) NSUInteger reasonIndex;
+- (void)onSwipeLeft:(UISwipeGestureRecognizer *)recognizer;
+- (void)onSwipeRight:(UISwipeGestureRecognizer *)recgnizer;
 
-
-- (void)buttonTouchUpHandler:(id)sender;
 @end

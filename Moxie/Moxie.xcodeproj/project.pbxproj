@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00F85254142D98860005277F /* 5402699783_087b67f9d7_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00F85252142D98860005277F /* 5402699783_087b67f9d7_b.jpg */; };
+		00F85255142D98860005277F /* 5698322742_9dbdbfac51_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00F85253142D98860005277F /* 5698322742_9dbdbfac51_b.jpg */; };
+		00F85258142F7FAC0005277F /* Reason.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F85257142F7FAC0005277F /* Reason.m */; };
 		6F01AC7F142D2AC100985A14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC7E142D2AC100985A14 /* UIKit.framework */; };
 		6F01AC81142D2AC100985A14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC80142D2AC100985A14 /* Foundation.framework */; };
 		6F01AC83142D2AC100985A14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC82142D2AC100985A14 /* CoreGraphics.framework */; };
@@ -17,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F85252142D98860005277F /* 5402699783_087b67f9d7_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5402699783_087b67f9d7_b.jpg; sourceTree = "<group>"; };
+		00F85253142D98860005277F /* 5698322742_9dbdbfac51_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5698322742_9dbdbfac51_b.jpg; sourceTree = "<group>"; };
+		00F85256142F7FAC0005277F /* Reason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reason.h; sourceTree = "<group>"; };
+		00F85257142F7FAC0005277F /* Reason.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reason.m; sourceTree = "<group>"; };
 		6F01AC7A142D2AC100985A14 /* Moxie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moxie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F01AC7E142D2AC100985A14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F01AC80142D2AC100985A14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -45,6 +52,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00F85251142D90C80005277F /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		6F01AC6F142D2AC100985A14 = {
 			isa = PBXGroup;
 			children = (
@@ -75,11 +89,16 @@
 		6F01AC84142D2AC100985A14 /* Moxie */ = {
 			isa = PBXGroup;
 			children = (
+				00F85252142D98860005277F /* 5402699783_087b67f9d7_b.jpg */,
+				00F85253142D98860005277F /* 5698322742_9dbdbfac51_b.jpg */,
+				00F85251142D90C80005277F /* images */,
 				6F01AC8D142D2AC100985A14 /* AppDelegate.h */,
 				6F01AC8E142D2AC100985A14 /* AppDelegate.m */,
 				6F01AC85142D2AC100985A14 /* Supporting Files */,
 				6F01AC95142D2B5B00985A14 /* QuestionViewController.h */,
 				6F01AC96142D2B5B00985A14 /* QuestionViewController.m */,
+				00F85256142F7FAC0005277F /* Reason.h */,
+				00F85257142F7FAC0005277F /* Reason.m */,
 			);
 			path = Moxie;
 			sourceTree = "<group>";
@@ -146,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F01AC89142D2AC100985A14 /* InfoPlist.strings in Resources */,
+				00F85254142D98860005277F /* 5402699783_087b67f9d7_b.jpg in Resources */,
+				00F85255142D98860005277F /* 5698322742_9dbdbfac51_b.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +180,7 @@
 				6F01AC8B142D2AC100985A14 /* main.m in Sources */,
 				6F01AC8F142D2AC100985A14 /* AppDelegate.m in Sources */,
 				6F01AC97142D2B5B00985A14 /* QuestionViewController.m in Sources */,
+				00F85258142F7FAC0005277F /* Reason.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +284,7 @@
 				6F01AC94142D2AC100985A14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
