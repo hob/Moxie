@@ -16,9 +16,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.reasons = [NSArray arrayWithObjects: [[Reason alloc] initWithImage:@"5698322742_9dbdbfac51_b.jpg" andCaption:@"Test"],
-                                                 [[Reason alloc] initWithImage:@"5402699783_087b67f9d7_b.jpg" andCaption:@"Test2"],
-                                                  nil];
+        self.reasons = [NSArray arrayWithObjects: [[Reason alloc] initWithImage:@"5698322742_9dbdbfac51_b.jpg" andCaption:@"I love you because you can make anything look good"],
+                        [[Reason alloc] initWithImage:@"5402699783_087b67f9d7_b.jpg" andCaption:@"I love you because this picture doesn't send you running"],
+                        [[Reason alloc] initWithImage:@"IMG_2951.jpg" andCaption:@"I love you because of the way you look at me"],
+                        [[Reason alloc] initWithImage:@"IMG_2915.jpg" andCaption:@"I love you because I know when you opened this gift you thought, 'Why the hell is he wasting money on this crap instead of buying me a ring?'"],
+                        [[Reason alloc] initWithImage:@"IMG_3342.jpg" andCaption:@"Marry Me"],
+                        nil];
     }
     return self;
 }
@@ -41,16 +44,6 @@
     [super loadView];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
-    UILabel *test = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 125, 35)];
-    test.text = @"Frank";
-    [self.view addSubview:test];
-    
-    UIButton *yesButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    UIButton *noButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-
-    [yesButton setTitle:@"Yes" forState:UIControlStateNormal];
-    [noButton setTitle:@"No" forState:UIControlStateNormal];
-
     Reason *currentReason = [self.reasons objectAtIndex:self.reasonIndex];
     CGRect imageRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:imageRect];
@@ -60,6 +53,15 @@
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [self.view addSubview:image];
 
+    UILabel *caption = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 70, self.view.bounds.size.width, 70)];
+    [caption setNumberOfLines:10];
+    [caption setTextColor:[UIColor whiteColor]];
+    [caption setBackgroundColor:[UIColor clearColor]];
+    [caption setFont:[UIFont fontWithName:@"Verdana" size:18]];
+    [caption setTextAlignment:UITextAlignmentCenter];
+    caption.text = [currentReason caption];
+    [self.view addSubview:caption];
+    
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
