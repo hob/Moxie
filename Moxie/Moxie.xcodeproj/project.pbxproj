@@ -22,6 +22,7 @@
 		00FA7A71142FE2460007EE23 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FA7A70142FE2460007EE23 /* bg.png */; };
 		00FA7A73142FEC440007EE23 /* moxie_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FA7A72142FEC430007EE23 /* moxie_logo.png */; };
 		00FA7A7614304D3D0007EE23 /* StrokedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FA7A7514304D3D0007EE23 /* StrokedLabel.m */; };
+		00FA7A78143055DF0007EE23 /* sperm_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FA7A77143055DF0007EE23 /* sperm_arrow.png */; };
 		6F01AC7F142D2AC100985A14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC7E142D2AC100985A14 /* UIKit.framework */; };
 		6F01AC81142D2AC100985A14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC80142D2AC100985A14 /* Foundation.framework */; };
 		6F01AC83142D2AC100985A14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F01AC82142D2AC100985A14 /* CoreGraphics.framework */; };
@@ -50,6 +51,7 @@
 		00FA7A72142FEC430007EE23 /* moxie_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moxie_logo.png; sourceTree = "<group>"; };
 		00FA7A7414304D3D0007EE23 /* StrokedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrokedLabel.h; sourceTree = "<group>"; };
 		00FA7A7514304D3D0007EE23 /* StrokedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrokedLabel.m; sourceTree = "<group>"; };
+		00FA7A77143055DF0007EE23 /* sperm_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sperm_arrow.png; sourceTree = "<group>"; };
 		6F01AC7A142D2AC100985A14 /* Moxie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moxie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F01AC7E142D2AC100985A14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6F01AC80142D2AC100985A14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -111,6 +113,7 @@
 		6F01AC84142D2AC100985A14 /* Moxie */ = {
 			isa = PBXGroup;
 			children = (
+				00FA7A77143055DF0007EE23 /* sperm_arrow.png */,
 				00FA7A72142FEC430007EE23 /* moxie_logo.png */,
 				00FA7A70142FE2460007EE23 /* bg.png */,
 				00F85253142D98860005277F /* 5698322742_9dbdbfac51_b.jpg */,
@@ -209,6 +212,7 @@
 				00F85275142FDFBA0005277F /* Icon-72.png in Resources */,
 				00FA7A71142FE2460007EE23 /* bg.png in Resources */,
 				00FA7A73142FEC440007EE23 /* moxie_logo.png in Resources */,
+				00FA7A78143055DF0007EE23 /* sperm_arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

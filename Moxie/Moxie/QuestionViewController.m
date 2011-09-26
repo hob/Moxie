@@ -16,10 +16,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.reasons = [NSArray arrayWithObjects: [[Reason alloc] initWithImage:@"5698322742_9dbdbfac51_b.jpg" andCaption:@"I love you because you can make anything look good"],
-                        [[Reason alloc] initWithImage:@"5402699783_087b67f9d7_b.jpg" andCaption:@"I love you because this picture doesn't send you running"],
-                        [[Reason alloc] initWithImage:@"IMG_2951.jpg" andCaption:@"I love you because of the way you look at me"],
-                        [[Reason alloc] initWithImage:@"IMG_2915.jpg" andCaption:@"I love you because I know when you opened this gift you thought, 'Why the hell is he wasting money on this crap instead of buying me a ring?'"],
+        self.reasons = [NSArray arrayWithObjects: [[Reason alloc] initWithImage:@"5698322742_9dbdbfac51_b.jpg" andCaption:@"...because you can make anything look good"],
+                        [[Reason alloc] initWithImage:@"5402699783_087b67f9d7_b.jpg" andCaption:@"...because this picture doesn't send you running"],
+                        [[Reason alloc] initWithImage:@"IMG_2951.jpg" andCaption:@"...because of the way you look at me"],
+                        [[Reason alloc] initWithImage:@"IMG_2915.jpg" andCaption:@"...because I know when you opened this gift you thought, 'Why the hell is he wasting money on this crap instead of buying me a ring?'"],
                         [[Reason alloc] initWithImage:@"SandWritten.jpg" andCaption:@""],
                         nil];
     }
@@ -52,14 +52,26 @@
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [self.view addSubview:image];
 
-    UILabel *caption = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 70, self.view.bounds.size.width, 70)];
+    UILabel *iLoveYou = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, self.view.bounds.size.width, 40)];
+    [iLoveYou setTextColor:[UIColor whiteColor]];
+    [iLoveYou setBackgroundColor:[UIColor clearColor]];
+    [iLoveYou setFont:[UIFont fontWithName:@"Helvetica" size:40]];
+    [iLoveYou setText:@"I love you..."];
+    [self.view addSubview:iLoveYou];
+    
+    UILabel *caption = [[UILabel alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height + 70, self.view.bounds.size.width, 70)];
     [caption setNumberOfLines:3];
     [caption setTextColor:[UIColor whiteColor]];
     [caption setBackgroundColor:[UIColor clearColor]];
-    [caption setFont:[UIFont boldSystemFontOfSize:18]];
+    [caption setFont:[UIFont fontWithName:@"Helvetica" size:18]];
     [caption setTextAlignment:UITextAlignmentCenter];
     [caption setText:[currentReason caption]];
     [self.view addSubview:caption];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [caption setTransform:CGAffineTransformMakeTranslation(0, -140)];
+    [UIView commitAnimations];
     
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];

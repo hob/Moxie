@@ -81,13 +81,13 @@
     [continueInstructions setTextColor:[UIColor whiteColor]];
     [continueInstructions setBackgroundColor:[UIColor clearColor]];
     [continueInstructions setFont:[UIFont fontWithName:@"Helvetica" size:40]];
-    [continueInstructions setText:@"Swipe left to find out why..."];
+    [continueInstructions setText:@"Swipe left to see some..."];
     [self.view addSubview:continueInstructions];
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1];
     [UIView setAnimationDelay:1];
-    [continueInstructions setTransform:CGAffineTransformMakeTranslation(self.view.bounds.size.width + 20, 0)];
+    [continueInstructions setTransform:CGAffineTransformMakeTranslation(self.view.bounds.size.width + 220, 0)];
     [UIView commitAnimations];
     
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
@@ -108,6 +108,19 @@
 	return YES;
 }
 - (void)onSwipeLeft:(UISwipeGestureRecognizer *)recognizer
+{
+    CGRect arrowRect = CGRectMake(self.view.bounds.size.width, 700, 655, 215);
+    UIImageView *sparrow = [[UIImageView alloc] initWithFrame:arrowRect];
+    [sparrow setImage:[UIImage imageNamed:@"sperm_arrow.png"]];
+    [sparrow setOpaque:true];
+    [self.view addSubview:sparrow];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:2];
+    [sparrow setTransform:CGAffineTransformMakeTranslation(-self.view.bounds.size.width*2, 0)];
+    [UIView commitAnimations];
+    [self performSelector:@selector(showFirstQuestion) withObject:nil afterDelay:2];
+}
+-(void)showFirstQuestion
 {
     QuestionViewController *firstQuestion = [[QuestionViewController alloc] initWithNibName:nil bundle:nil];
     [firstQuestion setReasonIndex:0];
