@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface StrokedLabel : UILabel
+@property (nonatomic, retain) UIColor *strokeColor;
 
 @end

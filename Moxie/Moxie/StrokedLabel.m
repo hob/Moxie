@@ -10,17 +10,22 @@
 
 @implementation StrokedLabel
 
+@synthesize strokeColor;
 - (void) drawTextInRect:(CGRect)rect
 {
+    if(!self.strokeColor)
+    {
+        [self setStrokeColor:[UIColor blackColor]];
+    }
     CGSize shadowOffset = self.shadowOffset;
     UIColor *textColor = self.textColor;
     
     CGContextRef c = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(c, 1.5);
+    CGContextSetLineWidth(c, .5);
     CGContextSetLineJoin(c, kCGLineJoinRound);
     
     CGContextSetTextDrawingMode(c, kCGTextStroke);
-    self.textColor = [UIColor blackColor];
+    self.textColor = [self strokeColor];
     [super drawTextInRect:rect];
     
     CGContextSetTextDrawingMode(c, kCGTextFill);

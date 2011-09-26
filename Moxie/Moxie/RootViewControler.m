@@ -10,6 +10,7 @@
 #include <AVFoundation/AVFoundation.h>
 #import "QuestionViewController.h"
 #import "StrokedLabel.h"
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation RootViewControler
 
@@ -63,9 +64,13 @@
     [logo setAlpha:0];
     [UIView commitAnimations];
 
+    UIColor *textColor = UIColorFromRGB(0x61AF6F);
+    UIColor *strokeColor = UIColorFromRGB(0x83B5C9);
+    
     StrokedLabel *introLabel = [[StrokedLabel alloc] initWithFrame:CGRectMake(20, 20, self.view.bounds.size.width-40, -400)];
     [introLabel setNumberOfLines:10];
-    [introLabel setTextColor:[UIColor whiteColor]];
+    [introLabel setTextColor:textColor];
+    [introLabel setStrokeColor:strokeColor];
     [introLabel setBackgroundColor:[UIColor clearColor]];
     [introLabel setFont:[UIFont fontWithName:@"Helvetica" size:30]];
     [introLabel setText:introText];
@@ -78,7 +83,8 @@
     [UIView commitAnimations];
 
     StrokedLabel *continueInstructions = [[StrokedLabel alloc] initWithFrame:CGRectMake(-self.view.bounds.size.width, 400, self.view.bounds.size.width, 50)];
-    [continueInstructions setTextColor:[UIColor whiteColor]];
+    [continueInstructions setTextColor:textColor];
+    [continueInstructions setStrokeColor:strokeColor];
     [continueInstructions setBackgroundColor:[UIColor clearColor]];
     [continueInstructions setFont:[UIFont fontWithName:@"Helvetica" size:40]];
     [continueInstructions setText:@"Swipe left to see some..."];
