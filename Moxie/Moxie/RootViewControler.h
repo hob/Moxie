@@ -13,5 +13,6 @@
 {
     AVAudioPlayer *player;
 }
+@property(nonatomic, retain) NSString *introText;
 -(void)onSwipeLeft:(UISwipeGestureRecognizer *)recognizer;
 @end

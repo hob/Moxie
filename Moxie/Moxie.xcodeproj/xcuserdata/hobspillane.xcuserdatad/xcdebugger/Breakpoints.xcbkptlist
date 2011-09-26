@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "338685376.155603"
+         timestampString = "338709911.185698"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "338685376.155603"
+         timestampString = "338709911.185698"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "46"
+         endingLineNumber = "46"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -65,13 +65,27 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "338685586.635267"
+         timestampString = "338710636.205247"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
+         startingLineNumber = "56"
+         endingLineNumber = "56"
          landmarkName = "-loadView"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Moxie/RootViewControler.h"
+         timestampString = "338701786.893439"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "16"
+         endingLineNumber = "16"
+         landmarkName = "introText"
+         landmarkType = "19">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

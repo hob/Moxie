@@ -9,14 +9,18 @@
 #import "RootViewControler.h"
 #include <AVFoundation/AVFoundation.h>
 #import "QuestionViewController.h"
+#import "StrokedLabel.h"
 
 @implementation RootViewControler
+
+@synthesize introText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
     }
     return self;
 }
@@ -47,20 +51,50 @@
     [image setOpaque:YES];
     [image setUserInteractionEnabled:YES];
     [image setContentMode:UIViewContentModeScaleAspectFill];
-    [self.view addSubview:image];
-    
+    [self.view addSubview:image];    
+        
     CGRect logoRect = CGRectMake(110, 374, 541, 240);
     UIImageView *logo = [[UIImageView alloc] initWithFrame:logoRect];
     [logo setImage:[UIImage imageNamed:@"moxie_logo.png"]];
     [image setOpaque:true];
     [self.view addSubview:logo];
+    [UIView beginAnimations:@"Fade Out" context:nil];
+    [UIView setAnimationDuration:1];
+    [logo setAlpha:0];
+    [UIView commitAnimations];
 
+    StrokedLabel *introLabel = [[StrokedLabel alloc] initWithFrame:CGRectMake(20, 20, self.view.bounds.size.width-40, -400)];
+    [introLabel setNumberOfLines:10];
+    [introLabel setTextColor:[UIColor whiteColor]];
+    [introLabel setBackgroundColor:[UIColor clearColor]];
+    [introLabel setFont:[UIFont fontWithName:@"Helvetica" size:30]];
+    [introLabel setText:introText];
+    [self.view addSubview:introLabel];
+
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationDelay:1];
+    [introLabel setTransform:CGAffineTransformMakeTranslation(0, 360)];
+    [UIView commitAnimations];
+
+    StrokedLabel *continueInstructions = [[StrokedLabel alloc] initWithFrame:CGRectMake(-self.view.bounds.size.width, 400, self.view.bounds.size.width, 50)];
+    [continueInstructions setTextColor:[UIColor whiteColor]];
+    [continueInstructions setBackgroundColor:[UIColor clearColor]];
+    [continueInstructions setFont:[UIFont fontWithName:@"Helvetica" size:40]];
+    [continueInstructions setText:@"Swipe left to find out why..."];
+    [self.view addSubview:continueInstructions];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1];
+    [UIView setAnimationDelay:1];
+    [continueInstructions setTransform:CGAffineTransformMakeTranslation(self.view.bounds.size.width + 20, 0)];
+    [UIView commitAnimations];
+    
     UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onSwipeLeft:)];
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     [swipeLeft release];
 }
-
 - (void)viewDidUnload
 {
     [super viewDidUnload];
