@@ -21,8 +21,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self setIntroText:@"Kristen,\n\nIt didn't take long when we first met for me to know that I was head over heals in love with you (even though I know I'm not very good at saying it sometimes...).  Figuring out exactly what it is I love about you, though, has been the fun part.  It is now, and hopefully continues to be part of what makes being with you so wonderful.\n\n  I've compiled just a few of those reasons here for you."];
-        //[self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
+        //[self setIntroText:@"Kristen,\n\nIt didn't take long when we first met for me to know that I was head over heals in love with you (even though I know I'm not very good at saying it sometimes...).  Figuring out exactly what it is I love about you, though, has been the fun part.  It is now, and hopefully continues to be part of what makes being with you so wonderful.\n\n  I've compiled just a few of those reasons here for you."];
+        [self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
     }
     return self;
 }
@@ -41,11 +41,11 @@
 {
     [super loadView];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-
-/*    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:@"01-jack_johnson-better_together.mp3"];
-    NSError *err;
-    player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:&err];
-    [player play];*/
+    
+    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
+    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
+    [player play];
     
     CGRect bgRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:bgRect];

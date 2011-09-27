@@ -10,9 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface RootViewControler : UIViewController
-{
-    AVAudioPlayer *player;
-}
+
 @property(nonatomic, retain) NSString *introText;
 -(void)onSwipeLeft:(UISwipeGestureRecognizer *)recognizer;
 @end
