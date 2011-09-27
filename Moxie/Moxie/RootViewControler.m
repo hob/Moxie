@@ -21,7 +21,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
+        [self setIntroText:@"Kristen,\n\nIt didn't take long when we first met for me to know that I was head over heals in love with you (even though I know I'm not very good at saying it sometimes...).  Figuring out exactly what it is I love about you, though, has been the fun part.  It is now, and hopefully continues to be part of what makes being with you so wonderful.\n\n  I've compiled just a few of those reasons here for you."];
+        //[self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
     }
     return self;
 }
@@ -67,19 +68,19 @@
     UIColor *textColor = UIColorFromRGB(0x61AF6F);
     UIColor *strokeColor = UIColorFromRGB(0x83B5C9);
     
-    StrokedLabel *introLabel = [[StrokedLabel alloc] initWithFrame:CGRectMake(20, 20, self.view.bounds.size.width-40, -400)];
-    [introLabel setNumberOfLines:10];
+    StrokedLabel *introLabel = [[StrokedLabel alloc] initWithFrame:CGRectMake(20, -500, self.view.bounds.size.width-40, 400)];
+    [introLabel setNumberOfLines:20];
     [introLabel setTextColor:textColor];
     [introLabel setStrokeColor:strokeColor];
     [introLabel setBackgroundColor:[UIColor clearColor]];
-    [introLabel setFont:[UIFont fontWithName:@"Helvetica" size:30]];
+    [introLabel setFont:[UIFont fontWithName:@"Helvetica" size:28]];
     [introLabel setText:introText];
     [self.view addSubview:introLabel];
 
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:1];
     [UIView setAnimationDelay:1];
-    [introLabel setTransform:CGAffineTransformMakeTranslation(0, 360)];
+    [introLabel setTransform:CGAffineTransformMakeTranslation(0, 500)];
     [UIView commitAnimations];
 
     StrokedLabel *continueInstructions = [[StrokedLabel alloc] initWithFrame:CGRectMake(-self.view.bounds.size.width, 400, self.view.bounds.size.width, 50)];
@@ -87,7 +88,7 @@
     [continueInstructions setStrokeColor:strokeColor];
     [continueInstructions setBackgroundColor:[UIColor clearColor]];
     [continueInstructions setFont:[UIFont fontWithName:@"Helvetica" size:40]];
-    [continueInstructions setText:@"Swipe left to see some..."];
+    [continueInstructions setText:@"Swipe left to see them..."];
     [self.view addSubview:continueInstructions];
     
     [UIView beginAnimations:nil context:nil];
