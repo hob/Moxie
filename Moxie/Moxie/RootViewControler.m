@@ -21,8 +21,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //[self setIntroText:@"Kristen,\n\nIt didn't take long when we first met for me to know that I was head over heals in love with you (even though I know I'm not very good at saying it sometimes...).  Figuring out exactly what it is I love about you, though, has been the fun part.  It is now, and hopefully continues to be part of what makes being with you so wonderful.\n\n  I've compiled just a few of those reasons here for you."];
-        [self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
+        [self setIntroText:@"Kristen,\n\nIt didn't take long when we first met for me to know that I was head over heals in love with you (even though I know I'm not very good at saying it sometimes...).  Figuring out exactly what it is I love about you, though, has been the fun part.  It is now, and continues to be part of what makes being with you so wonderful.\n\n  I've compiled just a few of those reasons here for you."];
+        //[self setIntroText:@"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."];
     }
     return self;
 }
@@ -61,7 +61,7 @@
     [image setOpaque:true];
     [self.view addSubview:logo];
     [UIView beginAnimations:@"Fade Out" context:nil];
-    [UIView setAnimationDuration:1];
+    [UIView setAnimationDuration:2];
     [logo setAlpha:0];
     [UIView commitAnimations];
 
@@ -73,13 +73,13 @@
     [introLabel setTextColor:textColor];
     [introLabel setStrokeColor:strokeColor];
     [introLabel setBackgroundColor:[UIColor clearColor]];
-    [introLabel setFont:[UIFont fontWithName:@"Helvetica" size:28]];
+    [introLabel setFont:[UIFont fontWithName:@"Thonburi-Bold" size:28]];
     [introLabel setText:introText];
     [self.view addSubview:introLabel];
 
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [UIView setAnimationDelay:1];
+    [UIView setAnimationDuration:2];
+    [UIView setAnimationDelay:2];
     [introLabel setTransform:CGAffineTransformMakeTranslation(0, 500)];
     [UIView commitAnimations];
 
@@ -87,13 +87,13 @@
     [continueInstructions setTextColor:textColor];
     [continueInstructions setStrokeColor:strokeColor];
     [continueInstructions setBackgroundColor:[UIColor clearColor]];
-    [continueInstructions setFont:[UIFont fontWithName:@"Helvetica" size:40]];
+    [continueInstructions setFont:[UIFont fontWithName:@"Thonburi-Bold" size:40]];
     [continueInstructions setText:@"Swipe left to see them..."];
     [self.view addSubview:continueInstructions];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1];
-    [UIView setAnimationDelay:1];
+    [UIView setAnimationDuration:2];
+    [UIView setAnimationDelay:2];
     [continueInstructions setTransform:CGAffineTransformMakeTranslation(self.view.bounds.size.width + 220, 0)];
     [UIView commitAnimations];
     
@@ -116,7 +116,7 @@
 }
 - (void)onSwipeLeft:(UISwipeGestureRecognizer *)recognizer
 {
-    CGRect arrowRect = CGRectMake(self.view.bounds.size.width, 700, 655, 215);
+    CGRect arrowRect = CGRectMake(self.view.bounds.size.width, 750, 655, 215);
     UIImageView *sparrow = [[UIImageView alloc] initWithFrame:arrowRect];
     [sparrow setImage:[UIImage imageNamed:@"sperm_arrow.png"]];
     [sparrow setOpaque:true];
@@ -125,7 +125,21 @@
     [UIView setAnimationDuration:2];
     [sparrow setTransform:CGAffineTransformMakeTranslation(-self.view.bounds.size.width*2, 0)];
     [UIView commitAnimations];
+    
+    [self performSelector:@selector(showJack) withObject:nil afterDelay:1];
     [self performSelector:@selector(showFirstQuestion) withObject:nil afterDelay:2];
+}
+-(void)showJack
+{
+    CGRect jackRect = CGRectMake(self.view.bounds.size.width/2 - 108, 600, 298, 216);
+    UIImageView *jack = [[UIImageView alloc] initWithFrame:jackRect];
+    [jack setImage:[UIImage imageNamed:@"HiJack.png"]];
+    [jack setOpaque:true];
+    [self.view addSubview:jack];
+    [UIView beginAnimations:@"Fade Out" context:nil];
+    [UIView setAnimationDuration:1];
+    [jack setAlpha:0];
+    [UIView commitAnimations];
 }
 -(void)showFirstQuestion
 {
