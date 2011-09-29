@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00A14E351432F65A005D3522 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A14E341432F65A005D3522 /* AssetsLibrary.framework */; };
 		00E8C05214317DBB005CDFA4 /* LastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E8C05114317DBB005CDFA4 /* LastViewController.m */; };
 		00E8C055143189F6005CDFA4 /* HiJack.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E8C054143189F6005CDFA4 /* HiJack.png */; };
 		00E8C05914319263005CDFA4 /* kristen_lucas.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00E8C05814319263005CDFA4 /* kristen_lucas.jpg */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00A14E341432F65A005D3522 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		00E8C05014317DBB005CDFA4 /* LastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastViewController.h; sourceTree = "<group>"; };
 		00E8C05114317DBB005CDFA4 /* LastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastViewController.m; sourceTree = "<group>"; };
 		00E8C054143189F6005CDFA4 /* HiJack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HiJack.png; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00A14E351432F65A005D3522 /* AssetsLibrary.framework in Frameworks */,
 				00F85273142FDBA00005277F /* AVFoundation.framework in Frameworks */,
 				6F01AC7F142D2AC100985A14 /* UIKit.framework in Frameworks */,
 				6F01AC81142D2AC100985A14 /* Foundation.framework in Frameworks */,
@@ -97,6 +100,7 @@
 		6F01AC6F142D2AC100985A14 = {
 			isa = PBXGroup;
 			children = (
+				00A14E341432F65A005D3522 /* AssetsLibrary.framework */,
 				00F85274142FDFBA0005277F /* Icon-72.png */,
 				00F85272142FDBA00005277F /* AVFoundation.framework */,
 				6F01AC84142D2AC100985A14 /* Moxie */,

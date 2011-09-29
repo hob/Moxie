@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "RootViewControler.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     AVAudioPlayer *player;
+    RootViewControler *rootController;
 }
 
 @property (strong, nonatomic) UIWindow *window;

@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RootViewControler : UIViewController
+@interface RootViewControler : UIViewController <AVCaptureFileOutputRecordingDelegate>
 
+@property(nonatomic, retain) AVCaptureMovieFileOutput *m_captureFileOutput;
 @property(nonatomic, retain) NSString *introText;
 -(void)onSwipeLeft:(UISwipeGestureRecognizer *)recognizer;
+-(void)initCapture;
+-(void)stopRecording;
 @end

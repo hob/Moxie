@@ -10,12 +10,14 @@
 #include <AVFoundation/AVFoundation.h>
 #import "QuestionViewController.h"
 #import "StrokedLabel.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation RootViewControler
 
 @synthesize introText;
-
+@synthesize m_captureFileOutput;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -41,7 +43,9 @@
 {
     [super loadView];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+
+    [self initCapture];
+
     NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
     NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
     AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
@@ -102,6 +106,10 @@
     [self.view addGestureRecognizer:swipeLeft];
     [swipeLeft release];
 }
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -146,5 +154,62 @@
     QuestionViewController *firstQuestion = [[QuestionViewController alloc] initWithNibName:nil bundle:nil];
     [firstQuestion setReasonIndex:0];
     [self.navigationController pushViewController:firstQuestion animated:true];
+}
+- (void)initCapture {
+    AVCaptureDevice *camera;
+    for (camera in [AVCaptureDevice devices])
+    {
+        if([camera hasMediaType:AVMediaTypeVideo] && [camera position] == AVCaptureDevicePositionFront)
+        {
+            break;
+        }
+    }
+    if(!camera) return;
+    AVCaptureDeviceInput *captureInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
+
+    self.m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+        
+    AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
+    
+    [captureSession addInput:captureInput];
+    [captureSession addOutput:m_captureFileOutput];
+    
+    [captureSession beginConfiguration]; 
+    [captureSession setSessionPreset:AVCaptureSessionPresetMedium]; 
+    [captureSession commitConfiguration]; 
+        
+    [captureSession startRunning];
+}
+- (void) startRecording
+{
+    NSString *outputPath = [[NSString alloc] initWithFormat:@"%@%@", NSTemporaryDirectory(), @"reaction.mov"];
+    NSURL *outputURL = [[NSURL alloc] initFileURLWithPath:outputPath];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:outputPath]) {
+        [[NSFileManager defaultManager] removeItemAtPath:outputPath error:nil];
+    }
+    [outputPath release];
+    [m_captureFileOutput startRecordingToOutputFileURL:[outputURL autorelease] recordingDelegate:self];
+}
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self startRecording];
+}
+- (void) stopRecording
+{
+    if([m_captureFileOutput isRecording])
+        [m_captureFileOutput stopRecording];
+    
+}
+- (void) captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
+{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:nil];
+    NSLog(@"start record video");
+}
+- (void) captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections
+{
+    NSLog(@"end record");
 }
 @end
