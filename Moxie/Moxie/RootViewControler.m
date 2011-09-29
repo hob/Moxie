@@ -50,7 +50,7 @@
     NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
     AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
     [player play];
-    
+
     CGRect bgRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:bgRect];
     [image setImage:[UIImage imageNamed:@"bg.png"]];
@@ -156,30 +156,34 @@
     [self.navigationController pushViewController:firstQuestion animated:true];
 }
 - (void)initCapture {
+    AVCaptureDevice *mic = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
     AVCaptureDevice *camera;
-    for (camera in [AVCaptureDevice devices])
+    for (AVCaptureDevice *device in [AVCaptureDevice devices])
     {
-        if([camera hasMediaType:AVMediaTypeVideo] && [camera position] == AVCaptureDevicePositionFront)
+        if([device hasMediaType:AVMediaTypeVideo] && [device position] == AVCaptureDevicePositionFront)
         {
+            camera = device;
             break;
         }
     }
     if(!camera) return;
-    AVCaptureDeviceInput *captureInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
-
+    AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
+    AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:NULL];
     self.m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
         
     AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
-    
-    [captureSession addInput:captureInput];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [captureSession addInput:videoInput];
+    //[captureSession addInput:audioInput];
     [captureSession addOutput:m_captureFileOutput];
     
-    [captureSession beginConfiguration]; 
-    [captureSession setSessionPreset:AVCaptureSessionPresetMedium]; 
+    [captureSession beginConfiguration];
+    [captureSession setSessionPreset:AVCaptureSessionPresetHigh]; 
     [captureSession commitConfiguration]; 
-        
     [captureSession startRunning];
+    [self performSelector:@selector(startRecording) withObject:nil afterDelay:1];
 }
+
 - (void) startRecording
 {
     NSString *outputPath = [[NSString alloc] initWithFormat:@"%@%@", NSTemporaryDirectory(), @"reaction.mov"];
@@ -190,11 +194,6 @@
     }
     [outputPath release];
     [m_captureFileOutput startRecordingToOutputFileURL:[outputURL autorelease] recordingDelegate:self];
-}
-- (void) viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self startRecording];
 }
 - (void) stopRecording
 {
