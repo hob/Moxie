@@ -169,7 +169,7 @@
     if(!camera) return;
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
     AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:NULL];
-    self.m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
+    m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
         
     AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
@@ -203,12 +203,26 @@
 }
 - (void) captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
 {
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    [library writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:nil];
-    NSLog(@"start record video");
+    NSLog(@"end record");
+    BOOL recordedSuccessfully = YES;
+    if ([error code] != noErr) {
+        // A problem occurred: Find out if the recording was successful.
+        id value = [[error userInfo] objectForKey:AVErrorRecordingSuccessfullyFinishedKey];
+        if (value) {
+            recordedSuccessfully = [value boolValue];
+        }
+    }
+    if(recordedSuccessfully)
+    {
+        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+        [library writeVideoAtPathToSavedPhotosAlbum:outputFileURL completionBlock:nil];
+    }else{
+        for(id key in error.userInfo)
+            NSLog(@"key=%@ value=%@", key, [error.userInfo objectForKey:key]);
+    }
 }
 - (void) captureOutput:(AVCaptureFileOutput *)captureOutput didStartRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections
 {
-    NSLog(@"end record");
+    NSLog(@"start record video");
 }
 @end
