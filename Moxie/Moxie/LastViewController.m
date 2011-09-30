@@ -7,6 +7,7 @@
 //
 
 #import "LastViewController.h"
+#import "AppDelegate.h"
 
 @implementation LastViewController
 
@@ -39,8 +40,12 @@
     [image setOpaque:true];
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [self.view addSubview:image];
+    [self performSelector:@selector(stopRecording) withObject:nil afterDelay:10];
 }
-
+-(void) stopRecording
+{
+    [APP_DELEGATE.rootController stopRecording];
+}
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad

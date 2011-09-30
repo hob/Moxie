@@ -14,6 +14,10 @@
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+@interface RootViewControler ()
+- (void)startRecording;
+@end
+
 @implementation RootViewControler
 
 @synthesize introText;
@@ -44,7 +48,7 @@
     [super loadView];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
-    [self initCapture];
+
 
     NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
     NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
@@ -117,6 +121,11 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self initCapture];
+    [self performSelector:@selector(stopRecording) withObject:nil afterDelay:10.0];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -156,6 +165,7 @@
     [self.navigationController pushViewController:firstQuestion animated:true];
 }
 - (void)initCapture {
+    NSLog(@"%@", [AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio]);
     AVCaptureDevice *mic = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
     AVCaptureDevice *camera;
     for (AVCaptureDevice *device in [AVCaptureDevice devices])
@@ -168,20 +178,21 @@
     }
     if(!camera) return;
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
-    AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:NULL];
+    NSError *error = nil;
+    AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:&error];
+    NSLog(@"%@", error);
     m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
         
     AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [captureSession addInput:videoInput];
-    //[captureSession addInput:audioInput];
+    [captureSession addInput:audioInput];
     [captureSession addOutput:m_captureFileOutput];
     
     [captureSession beginConfiguration];
     [captureSession setSessionPreset:AVCaptureSessionPresetHigh]; 
     [captureSession commitConfiguration]; 
     [captureSession startRunning];
-    [self performSelector:@selector(startRecording) withObject:nil afterDelay:1];
+    [self startRecording];
 }
 
 - (void) startRecording
