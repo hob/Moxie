@@ -37,11 +37,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339044021.742233"
+         timestampString = "339047922.648127"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
          landmarkName = "-loadView"
          landmarkType = "5">
       </FileBreakpoint>
@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339044294.136054"
+         timestampString = "339048182.099603"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "267"
-         endingLineNumber = "267">
+         startingLineNumber = "265"
+         endingLineNumber = "265">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -72,12 +72,26 @@
          landmarkType = "19">
       </FileBreakpoint>
       <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Moxie/RootViewControler.m"
+         timestampString = "339048175.825255"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "216"
+         endingLineNumber = "216"
+         landmarkName = "-captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339044294.136054"
+         timestampString = "339048176.369195"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "215"
@@ -91,7 +105,7 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339044294.136054"
+         timestampString = "339048177.697302"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "209"

@@ -48,13 +48,6 @@
     [super loadView];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 
-
-
-    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
-    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
-    [player play];
-
     CGRect bgRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:bgRect];
     [image setImage:[UIImage imageNamed:@"bg.png"]];
@@ -123,7 +116,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [self initCapture];
-    [self performSelector:@selector(stopRecording) withObject:nil afterDelay:10.0];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -182,7 +174,7 @@
     AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:&error];
     NSLog(@"%@", error);
     m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
-        
+    
     AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
     [captureSession addInput:videoInput];
     [captureSession addInput:audioInput];
@@ -205,6 +197,12 @@
     }
     [outputPath release];
     [m_captureFileOutput startRecordingToOutputFileURL:[outputURL autorelease] recordingDelegate:self];
+
+    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
+    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
+    [player play];
+
 }
 - (void) stopRecording
 {
