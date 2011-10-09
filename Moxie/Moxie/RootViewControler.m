@@ -102,6 +102,17 @@
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     [swipeLeft release];
+    
+    CGRect buttonRect = CGRectMake(200, 10, 250, 100);
+    UIButton *stopRecordingButton = [[UIButton alloc] initWithFrame:buttonRect];
+    [stopRecordingButton setBackgroundColor:UIColorFromRGB(0x999999)];
+    [stopRecordingButton addTarget:self action:@selector(stopRecordingButtonClickHandler:) forControlEvents:UIControlEventTouchDown];
+    [stopRecordingButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
+    [self.view addSubview:stopRecordingButton];
+}
+- (void)stopRecordingButtonClickHandler:(id)sender
+{
+    [self stopRecording];
 }
 - (void)viewDidLoad
 {
@@ -157,6 +168,11 @@
     [self.navigationController pushViewController:firstQuestion animated:true];
 }
 - (void)initCapture {
+    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
+    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
+    [player play];
+    
     NSLog(@"%@", [AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio]);
     AVCaptureDevice *mic = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
     AVCaptureDevice *camera;
@@ -197,12 +213,6 @@
     }
     [outputPath release];
     [m_captureFileOutput startRecordingToOutputFileURL:[outputURL autorelease] recordingDelegate:self];
-
-    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
-    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
-    [player play];
-
 }
 - (void) stopRecording
 {
