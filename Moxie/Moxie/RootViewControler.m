@@ -103,17 +103,6 @@
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     [swipeLeft release];
-    
-    CGRect buttonRect = CGRectMake(200, 10, 250, 100);
-    UIButton *stopRecordingButton = [[UIButton alloc] initWithFrame:buttonRect];
-    [stopRecordingButton setBackgroundColor:UIColorFromRGB(0x999999)];
-    [stopRecordingButton addTarget:self action:@selector(stopRecordingButtonClickHandler:) forControlEvents:UIControlEventTouchDown];
-    [stopRecordingButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
-    [self.view addSubview:stopRecordingButton];
-}
-- (void)stopRecordingButtonClickHandler:(id)sender
-{
-    [self stopRecording];
 }
 - (void)viewDidLoad
 {

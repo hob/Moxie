@@ -51,11 +51,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339913722.547022"
+         timestampString = "339915828.47508"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299">
+         startingLineNumber = "288"
+         endingLineNumber = "288">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -77,11 +77,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339913722.547022"
+         timestampString = "339915828.47508"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "249"
-         endingLineNumber = "249"
+         startingLineNumber = "238"
+         endingLineNumber = "238"
          landmarkName = "-captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -91,11 +91,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339913722.547022"
+         timestampString = "339915828.47508"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "248"
-         endingLineNumber = "248"
+         startingLineNumber = "237"
+         endingLineNumber = "237"
          landmarkName = "-captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -105,11 +105,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Moxie/RootViewControler.m"
-         timestampString = "339913722.547022"
+         timestampString = "339915828.47508"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "242"
-         endingLineNumber = "242"
+         startingLineNumber = "231"
+         endingLineNumber = "231"
          landmarkName = "-captureOutput:didFinishRecordingToOutputFileAtURL:fromConnections:error:"
          landmarkType = "5">
       </FileBreakpoint>
