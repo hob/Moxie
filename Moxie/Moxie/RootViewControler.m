@@ -11,6 +11,7 @@
 #import "QuestionViewController.h"
 #import "StrokedLabel.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -126,6 +127,10 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [audioSession setActive:YES error:nil];
+    [self playJack];
     [self initCapture];
 }
 
@@ -168,12 +173,6 @@
     [self.navigationController pushViewController:firstQuestion animated:true];
 }
 - (void)initCapture {
-    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
-    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
-    [player play];
-    
-    NSLog(@"%@", [AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio]);
     AVCaptureDevice *mic = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
     AVCaptureDevice *camera;
     for (AVCaptureDevice *device in [AVCaptureDevice devices])
@@ -188,7 +187,6 @@
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
     NSError *error = nil;
     AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:&error];
-    NSLog(@"%@", error);
     m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
     
     AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
@@ -203,6 +201,17 @@
     [self startRecording];
 }
 
+- (void) playJack
+{
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    UInt32 allowMixing = true;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(allowMixing), &allowMixing);
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
+    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
+    [player play];
+}
 - (void) startRecording
 {
     NSString *outputPath = [[NSString alloc] initWithFormat:@"%@%@", NSTemporaryDirectory(), @"reaction.mov"];

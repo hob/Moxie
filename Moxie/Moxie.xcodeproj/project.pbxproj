@@ -14,6 +14,7 @@
 		00E8C05B143193C1005CDFA4 /* kristen_spill.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00E8C05A143193C1005CDFA4 /* kristen_spill.jpg */; };
 		00E8C05D1431949C005CDFA4 /* blue_tounge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00E8C05C1431949C005CDFA4 /* blue_tounge.jpg */; };
 		00E8C05F14319D25005CDFA4 /* wedding.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00E8C05E14319D25005CDFA4 /* wedding.jpg */; };
+		00EF680B14425B8600014A19 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C4009E1435753F0052270A /* AudioToolbox.framework */; };
 		00F85254142D98860005277F /* 5402699783_087b67f9d7_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00F85252142D98860005277F /* 5402699783_087b67f9d7_b.jpg */; };
 		00F85255142D98860005277F /* 5698322742_9dbdbfac51_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 00F85253142D98860005277F /* 5698322742_9dbdbfac51_b.jpg */; };
 		00F85258142F7FAC0005277F /* Reason.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F85257142F7FAC0005277F /* Reason.m */; };
@@ -89,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00EF680B14425B8600014A19 /* AudioToolbox.framework in Frameworks */,
 				00A14E351432F65A005D3522 /* AssetsLibrary.framework in Frameworks */,
 				00F85273142FDBA00005277F /* AVFoundation.framework in Frameworks */,
 				6F01AC7F142D2AC100985A14 /* UIKit.framework in Frameworks */,
