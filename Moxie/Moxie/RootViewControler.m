@@ -11,8 +11,13 @@
 #import "QuestionViewController.h"
 #import "StrokedLabel.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+@interface RootViewControler ()
+- (void)startRecording;
+@end
 
 @implementation RootViewControler
 
@@ -43,13 +48,6 @@
 {
     [super loadView];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-
-    [self initCapture];
-
-    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
-    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
-    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
-    [player play];
 
     CGRect bgRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:bgRect];
@@ -105,6 +103,17 @@
     [swipeLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:swipeLeft];
     [swipeLeft release];
+    
+    CGRect buttonRect = CGRectMake(200, 10, 250, 100);
+    UIButton *stopRecordingButton = [[UIButton alloc] initWithFrame:buttonRect];
+    [stopRecordingButton setBackgroundColor:UIColorFromRGB(0x999999)];
+    [stopRecordingButton addTarget:self action:@selector(stopRecordingButtonClickHandler:) forControlEvents:UIControlEventTouchDown];
+    [stopRecordingButton setTitle:@"Stop Recording" forState:UIControlStateNormal];
+    [self.view addSubview:stopRecordingButton];
+}
+- (void)stopRecordingButtonClickHandler:(id)sender
+{
+    [self stopRecording];
 }
 - (void)viewDidLoad
 {
@@ -115,6 +124,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [audioSession setActive:YES error:nil];
+    [self playJack];
+    [self initCapture];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -168,22 +185,33 @@
     }
     if(!camera) return;
     AVCaptureDeviceInput *videoInput = [AVCaptureDeviceInput deviceInputWithDevice:camera error:NULL]; 
-    AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:NULL];
+    NSError *error = nil;
+    AVCaptureDeviceInput *audioInput = [AVCaptureDeviceInput deviceInputWithDevice:mic error:&error];
     m_captureFileOutput = [[AVCaptureMovieFileOutput alloc] init];
-        
+    
     AVCaptureSession *captureSession = [[AVCaptureSession alloc] init]; 
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
     [captureSession addInput:videoInput];
-    //[captureSession addInput:audioInput];
+    [captureSession addInput:audioInput];
     [captureSession addOutput:m_captureFileOutput];
     
     [captureSession beginConfiguration];
     [captureSession setSessionPreset:AVCaptureSessionPresetHigh]; 
     [captureSession commitConfiguration]; 
     [captureSession startRunning];
-    [self performSelector:@selector(startRecording) withObject:nil afterDelay:1];
+    [self startRecording];
 }
 
+- (void) playJack
+{
+    UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+    UInt32 allowMixing = true;
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(allowMixing), &allowMixing);
+    AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
+    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
+    NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
+    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
+    [player play];
+}
 - (void) startRecording
 {
     NSString *outputPath = [[NSString alloc] initWithFormat:@"%@%@", NSTemporaryDirectory(), @"reaction.mov"];
