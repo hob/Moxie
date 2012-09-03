@@ -36,7 +36,7 @@
     [super loadView];
     CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:rect];
-    [image setImage:[UIImage imageNamed:@"SandWritten.jpg"]];
+    [image setImage:[UIImage imageNamed:@"assets/images/SandWritten.jpg"]];
     [image setOpaque:true];
     [image setContentMode:UIViewContentModeScaleAspectFill];
     [self.view addSubview:image];

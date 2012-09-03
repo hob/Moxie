@@ -19,14 +19,14 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.reasons = [NSArray arrayWithObjects: [[Reason alloc] initWithImage:@"IMG_2951.jpg" andCaption:@"...because of the way you look at me"],
-                        [[Reason alloc] initWithImage:@"5698322742_9dbdbfac51_b.jpg" andCaption:@"...because you make this look good"],
-                        [[Reason alloc] initWithImage:@"kristen_lucas.jpg" andCaption:@"...because I know you're going to be a great mom"],
-                        [[Reason alloc] initWithImage:@"kristen_spill.jpg" andCaption:@"...because you're exceptionally good at laughing at yourself"],
-                        [[Reason alloc] initWithImage:@"wedding.jpg" andCaption:@"because you're a ravishing beauty"],
-                        [[Reason alloc] initWithImage:@"blue_tounge.jpg" andCaption:@"...because you're so playful and fun to be around"],
-                        [[Reason alloc] initWithImage:@"5402699783_087b67f9d7_b.jpg" andCaption:@"...because this picture doesn't send you running"],
-                        [[Reason alloc] initWithImage:@"IMG_2915.jpg" andCaption:@"...because I know when you opened this gift you thought, 'Why the hell is he wasting money on this crap instead of buying me a ring?'"],
+        self.reasons = [NSArray arrayWithObjects: [[Reason alloc] initWithImage:@"assets/images/IMG_2951.jpg" andCaption:@"...because of the way you look at me"],
+                        [[Reason alloc] initWithImage:@"assets/images/5698322742_9dbdbfac51_b.jpg" andCaption:@"...because you make this look good"],
+                        [[Reason alloc] initWithImage:@"assets/images/kristen_lucas.jpg" andCaption:@"...because I know you're going to be a great mom"],
+                        [[Reason alloc] initWithImage:@"assets/images/kristen_spill.jpg" andCaption:@"...because you're exceptionally good at laughing at yourself"],
+                        [[Reason alloc] initWithImage:@"assets/images/wedding.jpg" andCaption:@"because you're a ravishing beauty"],
+                        [[Reason alloc] initWithImage:@"assets/images/blue_tounge.jpg" andCaption:@"...because you're so playful and fun to be around"],
+                        [[Reason alloc] initWithImage:@"assets/images/5402699783_087b67f9d7_b.jpg" andCaption:@"...because this picture doesn't send you running"],
+                        [[Reason alloc] initWithImage:@"assets/images/IMG_2915.jpg" andCaption:@"...because I know when you opened this gift you thought, 'Why the hell is he wasting money on this crap instead of buying me a ring?'"],
                         nil];
     }
     return self;

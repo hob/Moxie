@@ -51,7 +51,7 @@
 
     CGRect bgRect = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     UIImageView *image = [[UIImageView alloc] initWithFrame:bgRect];
-    [image setImage:[UIImage imageNamed:@"bg.png"]];
+    [image setImage:[UIImage imageNamed:@"assets/images/bg.png"]];
     [image setOpaque:YES];
     [image setUserInteractionEnabled:YES];
     [image setContentMode:UIViewContentModeScaleAspectFill];
@@ -59,7 +59,7 @@
         
     CGRect logoRect = CGRectMake(110, 374, 541, 240);
     UIImageView *logo = [[UIImageView alloc] initWithFrame:logoRect];
-    [logo setImage:[UIImage imageNamed:@"moxie_logo.png"]];
+    [logo setImage:[UIImage imageNamed:@"assets/images/moxie_logo.png"]];
     [image setOpaque:true];
     [self.view addSubview:logo];
     [UIView beginAnimations:@"Fade Out" context:nil];
@@ -132,7 +132,7 @@
 {
     CGRect arrowRect = CGRectMake(self.view.bounds.size.width, 750, 655, 215);
     UIImageView *sparrow = [[UIImageView alloc] initWithFrame:arrowRect];
-    [sparrow setImage:[UIImage imageNamed:@"sperm_arrow.png"]];
+    [sparrow setImage:[UIImage imageNamed:@"assets/images/sperm_arrow.png"]];
     [sparrow setOpaque:true];
     [self.view addSubview:sparrow];
     [UIView beginAnimations:nil context:nil];
@@ -147,7 +147,7 @@
 {
     CGRect jackRect = CGRectMake(self.view.bounds.size.width/2 - 108, 600, 298, 216);
     UIImageView *jack = [[UIImageView alloc] initWithFrame:jackRect];
-    [jack setImage:[UIImage imageNamed:@"HiJack.png"]];
+    [jack setImage:[UIImage imageNamed:@"assets/images/HiJack.png"]];
     [jack setOpaque:true];
     [self.view addSubview:jack];
     [UIView beginAnimations:@"Fade Out" context:nil];
@@ -196,7 +196,7 @@
     UInt32 allowMixing = true;
     AudioSessionSetProperty(kAudioSessionProperty_OverrideCategoryMixWithOthers, sizeof(allowMixing), &allowMixing);
     AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, sizeof(audioRouteOverride), &audioRouteOverride);
-    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"01-jack_johnson-better_together" ofType:@"mp3"];
+    NSString *jackPath = [[NSBundle mainBundle] pathForResource:@"assets/audio/01-jack_johnson-better_together" ofType:@"mp3"];
     NSURL *backgroundMusicURL = [NSURL fileURLWithPath:jackPath];
     AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:backgroundMusicURL error:NULL];
     [player play];
