@@ -29,7 +29,7 @@
 
     self.rootController = [[[RootViewControler alloc] initWithNibName:nil bundle:nil] autorelease];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rootController];
-    [self.window addSubview:navController.view];
+    [self.window setRootViewController:navController];
     [self.window makeKeyAndVisible];
 
     return YES;

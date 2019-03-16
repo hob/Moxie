@@ -11,7 +11,7 @@
 #import "RootViewControler.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
-    AVAudioPlayer *player;
+AVAudioPlayer *player;
     RootViewControler *rootController;
 }
 
